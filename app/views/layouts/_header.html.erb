@@ -1,5 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <%= image_tag("kouseki_colorful.png", id: "logo_icon", alt: "Ruby logo", width: "30px") %>
     <%= link_to "sample app", root_path, id: "logo" %>
     <nav>
       <div class="navbar-header">
@@ -25,8 +26,7 @@
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path,
-                                       data: { "turbo-method": :delete } %>
+                <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
               </li>
             </ul>
           </li>
