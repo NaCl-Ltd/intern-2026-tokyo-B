@@ -142,6 +142,9 @@ footer {
 /* sidebar */
 
 aside {
+  section.user_section {
+    background-color: #eeeeee;
+  }
   section.user_info {
     margin-top: 20px;
   }
@@ -165,10 +168,6 @@ aside {
       margin-top: 0px;
     }
   }
-}
-
-.col-md-4 {
-  background-color: #eeeeee;
 }
 
 .gravatar {
