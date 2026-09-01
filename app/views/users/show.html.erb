@@ -6,12 +6,15 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
 
-
         <% if @user.nickname.present? %>
           <br>
           <small class="text-muted" style="font-weight: normal;">@<%= @user.nickname %></small>
         <% end %>
       </h1>
+    </section>
+
+    <section class="stats">
+      <%= render 'shared/stats' %>
     </section>
   </aside>
 
