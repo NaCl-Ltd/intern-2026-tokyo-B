@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :birth_place, length: { maximum: 100 }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  validates :nickname, uniqueness: true, allow_blank: true
+  validates :nickname, presence: true, uniqueness: true
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
