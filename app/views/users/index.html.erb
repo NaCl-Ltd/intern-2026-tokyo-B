@@ -1,6 +1,14 @@
 <% provide(:title, 'All users') %>
 <h1><%= t('shared.label.all_users') %></h1>
 
+<section class="birth_place_form">
+  <%= form_with url: "/users", method: :get do |f| %>
+    <%= f.label :birth_place, "出身地検索" %>
+    <%= f.search_field :birth_place, value: params[:birth_place], placeholder: "ex)Tokyo" %>
+    <%= f.submit "検索", class: "btn btn-secondary" %>
+  <% end %>
+</section>
+
 <%= will_paginate %>
 
 <ul class="users">

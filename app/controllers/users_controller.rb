@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    if params[:birth_place]
+      @users = User.where('birth_place LIKE ?', "%#{params[:birth_place]}%").paginate(page: params[:page])
+    else
+      @users = User.paginate(page: params[:page])
+    end
   end
 
   def show
@@ -63,7 +67,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.expect(user: [:name, :email, :password,
+      params.expect(user: [:name, :email, :birth_place, :password,
                            :password_confirmation,
                            :nickname,
                            :context,])
