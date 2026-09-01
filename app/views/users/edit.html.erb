@@ -6,16 +6,16 @@
     <%= form_with(model: @user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :名前 %>
+      <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :メールアドレス %>
+      <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :パスワード %>
+      <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :パスワードの確認, "Confirmation" %>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "変更を確認", class: "btn btn-primary" %>

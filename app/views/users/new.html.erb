@@ -5,19 +5,19 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_with(model: @user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :名前 %>
+      <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :メールアドレス %>
+      <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :パスワード %>
+      <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :パスワードの確認, "Confirmation" %>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "アカウントを作成する", class: "btn btn-primary" %>
+      <%= f.submit "アカウントを作成する" %>
     <% end %>
   </div>
 </div>
