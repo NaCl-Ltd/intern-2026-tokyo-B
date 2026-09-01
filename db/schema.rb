@@ -86,6 +86,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_012157) do
     t.date "birth_date"
     t.string "context"
     t.string "birth_place"
+    t.date "birth_date"
     t.datetime "created_at", null: false
     t.string "email"
     t.string "name"
