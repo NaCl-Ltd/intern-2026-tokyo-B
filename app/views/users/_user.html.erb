@@ -5,4 +5,5 @@
     | <%= link_to "delete", user, data: { "turbo-method": :delete,
                                           turbo_confirm: "You sure?" } %>
   <% end %>
+  <%= link_to user.context,user>
 </li>
