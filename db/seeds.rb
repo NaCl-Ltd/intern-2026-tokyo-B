@@ -11,8 +11,10 @@ User.create!(name:  "Example User",
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
+  birth_place = ["Tokyo", "Shimane", "New York", "Lon don"].sample
   User.create!(name:  name,
                email: email,
+               birth_place: birth_place,
                password:              password,
                password_confirmation: password,
                activated: true,
