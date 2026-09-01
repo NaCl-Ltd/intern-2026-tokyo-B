@@ -58,6 +58,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_012157) do
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
+  create_table "pets", force: :cascade do |t|
+    t.date "birth_date"
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.string "species"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.integer "followed_id"
@@ -95,4 +105,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_012157) do
   add_foreign_key "comments", "microposts"
   add_foreign_key "comments", "users"
   add_foreign_key "microposts", "users"
+  add_foreign_key "pets", "users"
 end
