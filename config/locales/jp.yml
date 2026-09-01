@@ -1,5 +1,5 @@
 ja:
-  will_paginate:
+  will_paginate: #will_pagenate専用のlocale
     previous_label: "« 前へ"
     next_label: "次へ »"
     page_gap: "…"
