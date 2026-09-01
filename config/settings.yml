@@ -5,3 +5,7 @@ about:
       - kamakiri746
       - riversunlight
       - karakasaobake
+
+recent:
+  hours: 48
+  max_count: 10
