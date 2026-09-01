@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_01_044737) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -48,6 +48,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
+  create_table "pets", force: :cascade do |t|
+    t.date "birth_date"
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.string "species"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.integer "followed_id"
@@ -63,6 +73,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
     t.datetime "activated_at"
     t.string "activation_digest"
     t.boolean "admin", default: false
+    t.date "birth_date"
+    t.string "context"
     t.datetime "created_at", null: false
     t.string "email"
     t.string "name"
@@ -77,4 +89,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "microposts", "users"
+  add_foreign_key "pets", "users"
 end
