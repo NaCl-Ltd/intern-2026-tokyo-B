@@ -106,6 +106,11 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  # 現在のユーザーが自己紹介文を持っていればtrueを返す
+  def has_aboutMe?
+    context.presence
+  end
 
   private
 
