@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    attributes:
+      user: 
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+  activemodel:   # Formオブジェクト用
+    attributes:
+      order_object: 
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+  helpers:
+    label:
+      password_reset:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
