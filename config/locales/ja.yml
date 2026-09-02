@@ -6,6 +6,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
+  
   activemodel:   # Formオブジェクト用
     attributes:
       order_object: 
@@ -13,6 +14,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
+  
   helpers: #モデル未定義のForm用
     label:
       password_reset:
@@ -20,6 +22,12 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
+      session:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+
   shared:
     label:
       app_name: Y
@@ -55,6 +63,6 @@ ja:
       remember_me: ログイン情報を記憶しますか?
       join_now: 今すぐ参加しましょう!
       has_error: 個のエラーがあります。
-      welcome_app:サンプルアプリへようこそ! 
+      welcome_app: サンプルアプリへようこそ! 
 
 

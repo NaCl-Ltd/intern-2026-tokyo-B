@@ -1,5 +1,5 @@
 <% provide(:title, "Edit user") %>
-<h1>t('shared.label.edit_your_profile')</h1>
+<h1><%= t('shared.label.edit_profile') %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -23,7 +23,7 @@
 
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
-      <a href="https://gravatar.com/emails">t('shared.label.change_icon')</a>
+      <a href="https://gravatar.com/emails"><%= t('shared.label.change_icon') %></a>
     </div>
   </div>
 </div>

@@ -4,12 +4,12 @@
     <strong id="following" class="stat">
       <%= @user.following.count %>
     </strong>
-    フォロー中
+    <%= t('shared.label.follow_now') %>
   </a>
   <a href="<%= followers_user_path(@user) %>">
     <strong id="followers" class="stat">
       <%= @user.followers.count %>
     </strong>
-    フォロワー
+    <%= t('shared.label.follow_you') %>
   </a>
 </div>
