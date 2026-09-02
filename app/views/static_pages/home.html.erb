@@ -14,13 +14,13 @@
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>投稿一覧</h3>
+      <h3>t('shared.label.all_micropost')</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>
 <% else %>
   <div class="center jumbotron">
-    <h1>サンプルアプリへようこそ！</h1>
+    <h1>t('shared.label.welcome_app')</h1>
 
     <h2>
       このページは
@@ -28,7 +28,7 @@
       のためのサンプルアプリケーションです。
     </h2>
 
-    <%= link_to "今すぐサインアップ!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to t('shared.label.join_now'), signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 
   <%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200px"),

@@ -1,5 +1,5 @@
 <% provide(:title, "Edit user") %>
-<h1>プロフィールを編集</h1>
+<h1>t('shared.label.edit_your_profile')</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -18,12 +18,12 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "変更を確認", class: "btn btn-primary" %>
+      <%= f.submit t('shared.label.confirm_change'), class: "btn btn-primary" %>
     <% end %>
 
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
-      <a href="https://gravatar.com/emails">アイコンを変更</a>
+      <a href="https://gravatar.com/emails">t('shared.label.change_icon')</a>
     </div>
   </div>
 </div>

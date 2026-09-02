@@ -10,7 +10,7 @@
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> 前に投稿
     <% if current_user?(micropost.user) %>
-      <%= link_to "削除", micropost, data: { "turbo-method": :delete,
+      <%= link_to t('shared.label.delete'), micropost, data: { "turbo-method": :delete,
                                                turbo_confirm: "You sure?" } %>
     <% end %>
   </span>

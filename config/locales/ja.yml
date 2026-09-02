@@ -13,10 +13,48 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
-  helpers:
+  helpers: #モデル未定義のForm用
     label:
       password_reset:
         name: 名前
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
+  shared:
+    label:
+      app_name: Y
+      name: 名前
+      home: ホーム
+      help: ヘルプ
+      all_users: 全てのユーザー
+      account: アカウント
+      create_account: アカウントを作成する
+      profile: プロフィール
+      view_profile: プロフィールを見る
+      edit_profile: プロフィールを編集する
+      change_icon: アイコンを変更
+      setting: 設定
+      signed_out: ログアウト
+      sign_in: ログイン
+      sign_up: サインアップ
+      delete: 削除
+      password: パスワード
+      change_my_password: パスワードを変更する
+      change_your_password: パスワードの変更
+      forgot_your_password: パスワードを忘れましたか？
+      forgot_my_password: パスワードを忘れた
+      register_passworde: パスワードの登録
+      micropost: 投稿
+      all_micropost: 全ての投稿
+      suggest_micropost: 今日の出来事を呟きましょう・・・
+      follow_user: フォローする
+      unfollow_user: フォローをやめる
+      follow_now: フォロー中
+      follow_you: フォロワー
+      confirm_change: 変更を確認
+      remember_me: ログイン情報を記憶しますか?
+      join_now: 今すぐ参加しましょう!
+      has_error: 個のエラーがあります。
+      welcome_app:サンプルアプリへようこそ! 
+
+
