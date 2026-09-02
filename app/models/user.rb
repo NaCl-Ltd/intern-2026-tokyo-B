@@ -109,8 +109,8 @@ class User < ApplicationRecord
   end
   
   # 現在のユーザーが自己紹介文を持っていればtrueを返す
-  def has_aboutMe?
-    context.presence
+  def has_aboutme?
+    context.present?
   end
 
   # app/models/user.rb
