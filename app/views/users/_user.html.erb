@@ -8,4 +8,6 @@
     | <%= link_to t('shared.label.delete'), user, data: { "turbo-method": :delete,
                                           turbo_confirm: "You sure?" } %>
   <% end %>
+  <br>
+  <%= user.birth_place %>
 </li>
