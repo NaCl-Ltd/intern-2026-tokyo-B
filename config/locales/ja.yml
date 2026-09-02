@@ -54,6 +54,7 @@ ja:
       register_passworde: パスワードの登録
       micropost: 投稿
       all_micropost: 全ての投稿
+      micropost_ago: 前に投稿
       suggest_micropost: 今日の出来事を呟きましょう・・・
       follow_user: フォローする
       unfollow_user: フォローをやめる
@@ -64,5 +65,10 @@ ja:
       join_now: 今すぐ参加しましょう!
       has_error: 個のエラーがあります。
       welcome_app: サンプルアプリへようこそ! 
-
-
+      done_setup: ロゴ画像が表示されたらセットアップ完了です!
+      rails_tutorial: Railsチュートリアル
+      new_account?: 新しい参加者ですか?
+      about_message: また、このアプリケーションは<%= Settings.about.internship.host %>が実施する
+        インターンシップの中でより良いアプリケーションになるよう改善が行われております。
+        この改善を実施したのは次のインターン生のみなさんです。
+      

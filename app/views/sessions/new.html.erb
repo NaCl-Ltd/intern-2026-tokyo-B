@@ -20,6 +20,6 @@
       <%= f.submit t('shared.label.sign_in'), class: "btn btn-primary" %>
     <% end %>
 
-    <p>新しい参加者ですか? <%= link_to t('shared.label.join_now'), signup_path %></p>
+    <p><%= t('shared.label.new_account?') %> <%= link_to t('shared.label.join_now'), signup_path %></p>
   </div>
 </div>
