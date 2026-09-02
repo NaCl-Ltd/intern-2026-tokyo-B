@@ -11,5 +11,8 @@
       <%= @user.followers.count %>
     </strong>
     followers
-  </a>
+  </a>  
+  <% if current_user.has_aboutMe? %>
+    <%= current_user.context %>
+  <% end %>
 </div>
