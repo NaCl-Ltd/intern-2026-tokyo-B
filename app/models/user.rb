@@ -108,6 +108,13 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # app/models/user.rb
+  def recent_following_microposts
+    Micropost.where(user_id: following_ids) # フォローしているユーザーに絞る
+             .where('created_at >= ?', Settings.recent.hours.hours.ago) # 48時間以内
+             .order(created_at: :desc) # 最新順
+             .limit(Settings.recent.max_count) # 最大10件
+  end
   private
 
     # メールアドレスをすべて小文字にする
