@@ -17,6 +17,14 @@
         <li><%= link_to t('shared.label.help'), help_path %></li>
         <% if logged_in? %>
           <li><%= link_to t('shared.label.all_users'), users_path %></li>
+          
+          <% recent_count = current_user.recent_following_microposts.count %>
+          <li>
+            <%= link_to recent_path do %>
+              New <%= "(#{recent_count})" if recent_count > 0 %>
+            <% end %>
+          </li>
+        
           <li class="dropdown">
             <a href="#" id="account" class="dropdown-toggle">
               <%= t('shared.label.account') %> <b class="caret"></b>
