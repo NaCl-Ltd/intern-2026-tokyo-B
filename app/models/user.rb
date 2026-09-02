@@ -4,7 +4,7 @@ class User < ApplicationRecord
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
   has_many :passive_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",d
+                                   foreign_key: "followed_id",
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :birth_place, length: { maximum: 100 }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  validates :nickname, presence: true, uniqueness: true
+  validates :nickname, uniqueness: true, allow_blank: true
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
