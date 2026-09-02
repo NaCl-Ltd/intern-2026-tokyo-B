@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_02_012157) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -39,6 +39,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.integer "micropost_id", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["micropost_id"], name: "index_comments_on_micropost_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
@@ -46,6 +56,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
     t.integer "user_id", null: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.date "birth_date"
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.string "species"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -63,18 +83,24 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_30_035904) do
     t.datetime "activated_at"
     t.string "activation_digest"
     t.boolean "admin", default: false
+    t.date "birth_date"
     t.datetime "created_at", null: false
     t.string "email"
     t.string "name"
+    t.string "nickname"
     t.string "password_digest"
     t.string "remember_digest"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["nickname"], name: "index_users_on_nickname", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "microposts"
+  add_foreign_key "comments", "users"
   add_foreign_key "microposts", "users"
+  add_foreign_key "pets", "users"
 end
