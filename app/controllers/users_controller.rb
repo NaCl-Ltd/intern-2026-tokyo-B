@@ -64,7 +64,8 @@ class UsersController < ApplicationController
 
     def user_params
       params.expect(user: [:name, :email,:context, :password,
-                           :password_confirmation])
+                           :password_confirmation,
+                           :nickname,])
     end
 
     # beforeフィルター

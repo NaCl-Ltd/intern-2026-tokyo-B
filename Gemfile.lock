@@ -205,6 +205,8 @@ GEM
     marcel (1.0.4)
     matrix (0.4.3)
     method_source (1.1.0)
+    mini_magick (5.4.0)
+      logger
     mini_mime (1.1.5)
     minitest (6.0.6)
       drb (~> 2.0)
@@ -483,6 +485,7 @@ DEPENDENCIES
   irb (= 1.18.0)
   jbuilder (= 2.15.1)
   mailgun-ruby (= 1.4.4)
+  mini_magick
   minitest (= 6.0.6)
   minitest-reporters (= 1.8.0)
   mutex_m
