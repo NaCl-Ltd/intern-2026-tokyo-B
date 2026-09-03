@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments, dependent: :destroy
+  has_many :active_bookmarks, class_name: "Bookmark",
+                              foreign_key: "user_id",
+                              dependent: :destroy
+  has_many :bookmarked_microposts, through: :active_bookmarks, source: :micropost
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -104,6 +108,14 @@ class User < ApplicationRecord
     following.delete(other_user)
   end
 
+  def bookmark(micropost)
+    bookmarked_microposts << micropost
+  end
+
+  def unbookmark(micropost)
+    bookmarked_microposts.delete(micropost)
+  end
+
   # 現在のユーザーが他のユーザーをフォローしていればtrueを返す
   def following?(other_user)
     following.include?(other_user)
@@ -112,6 +124,10 @@ class User < ApplicationRecord
   # 現在のユーザーが自己紹介文を持っていればtrueを返す
   def has_aboutme?
     context.present?
+  end
+
+  def bookmarking?(micropost)
+    bookmarked_microposts.include?(micropost)
   end
 
   # app/models/user.rb

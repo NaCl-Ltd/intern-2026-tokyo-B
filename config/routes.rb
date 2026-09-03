@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get    "/signup",  to: "users#new"
   get    "/login",   to: "sessions#new"
   get '/recent', to: 'microposts#recent'
+  get '/bookmark_show', to: 'microposts#bookmark_show'
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
   resources :users do
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
     resources :comments,          only: [:create, :destroy]
   end
   resources :relationships,       only: [:create, :destroy]
+  resources :bookmarks, only: [:create, :destroy]
   get "/microposts", to: "static_pages#home"
 end

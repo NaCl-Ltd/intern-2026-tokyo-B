@@ -1,6 +1,7 @@
 <li id="micropost-<%= micropost.id %>">
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+  <%= render 'microposts/bookmark_form', micropost: micropost %>
   <span class="content">
     <%= micropost.content %>
     <% if micropost.image.attached? %>
