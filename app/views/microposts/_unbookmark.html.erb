@@ -1,3 +1,3 @@
-<%= form_with model: current_user.active_bookmarks.find_by(micropost: micropost), method: :delete do |f| %>
-  <%= f.submit "★" %>
+<%= form_with(model: current_user.active_bookmarks.find_by(micropost: micropost), method: :delete) do |f| %>
+  <%= f.submit "unbookmark" %>
 <% end %>

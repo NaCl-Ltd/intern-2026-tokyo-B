@@ -28,6 +28,10 @@ class MicropostsController < ApplicationController
     @microposts = current_user.recent_following_microposts
   end
 
+  def bookmark_show
+    @microposts = current_user.bookmarked_microposts
+  end
+
   private
 
     def micropost_params
