@@ -10,8 +10,14 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, data: { "turbo-method": :delete,
-                                               turbo_confirm: "You sure?" } %>
+      <%# 固定/解除 の切り替え %>
+      <% if micropost.pinned? %>
+        <%= link_to "固定解除", unpin_micropost_path(micropost), data: { "turbo-method": :delete } %>
+      <% else %>
+        <%= link_to "固定する", pin_micropost_path(micropost), data: { "turbo-method": :patch } %>
+      <% end %>
+
+      <%= link_to "delete", micropost, data: { "turbo-method": :delete, turbo_confirm: "You sure?" } %>
     <% end %>
   </span>
 </li>
