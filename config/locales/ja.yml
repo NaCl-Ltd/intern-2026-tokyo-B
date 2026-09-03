@@ -71,4 +71,11 @@ ja:
       about_message: また、このアプリケーションは<%= Settings.about.internship.host %>が実施する
         インターンシップの中でより良いアプリケーションになるよう改善が行われております。
         この改善を実施したのは次のインターン生のみなさんです。
-      
+      help_message: Ruby on Rails チュートリアルにでお困りなら
+        <a href="https://railstutorial.jp/help">Rails チュートリアル ヘルプページ</a>.
+        このサンプルアプリでお困りなら
+        <a href="https://railstutorial.jp/#ebook"><em>Ruby on Rails チュートリアル</em>
+        テキスト</a>.
+      home_message: このページは
+        <a href="https://railstutorial.jp/">Ruby on Rails チュートリアル</a>
+        のためのサンプルアプリケーションです。
