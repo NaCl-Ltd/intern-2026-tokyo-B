@@ -45,12 +45,12 @@ class MicropostsController < ApplicationController
 
   private
 
-  def micropost_params
-    params.expect(micropost: [:content, :image])
-  end
+    def micropost_params
+      params.expect(micropost: [:content, :image])
+    end
 
-  def correct_user
-    @micropost = current_user.microposts.find_by(id: params[:id])
-    redirect_to root_url, status: :see_other if @micropost.nil?
-  end
+    def correct_user
+      @micropost = current_user.microposts.find_by(id: params[:id])
+      redirect_to root_url, status: :see_other if @micropost.nil?
+    end
 end

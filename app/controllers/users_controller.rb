@@ -10,9 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # そのユーザーの固定ポストを1件取得
     @pinned_micropost = @user.microposts.find_by(pinned: true)
-    # 固定ポストを除外して一覧を取得
     @microposts = @user.microposts.where.not(id: @pinned_micropost&.id).paginate(page: params[:page])
   end
 

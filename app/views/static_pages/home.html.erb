@@ -16,7 +16,6 @@
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
 
-      <%# ↓↓↓ここから追加↓↓↓ %>
       <% if @pinned_micropost && (params[:page].nil? || params[:page] == "1") %>
         <div class="pinned-micropost" style="border: 2px solid #5bc0de; padding: 10px; margin-bottom: 20px; border-radius: 5px;">
           <span style="display: inline-block; background-color: #5bc0de; color: white; padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; font-weight: bold; font-size: 12px;">
@@ -27,7 +26,6 @@
           </ol>
         </div>
       <% end %>
-      <%# ↑↑↑ここまで追加↑↑↑ %>
 
       <%= render 'shared/feed' %>
     </div>

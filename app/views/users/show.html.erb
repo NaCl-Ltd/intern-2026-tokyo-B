@@ -23,7 +23,6 @@
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
 
-      <%# 固定ポストの表示エリア %>
       <% if @pinned_micropost && (params[:page].nil? || params[:page] == "1") %>
         <div class="pinned-micropost" style="border: 2px solid #5bc0de; padding: 10px; margin-bottom: 20px; border-radius: 5px;">
           <span style="display: inline-block; background-color: #5bc0de; color: white; padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; font-weight: bold; font-size: 12px;">
@@ -35,7 +34,6 @@
         </div>
       <% end %>
 
-      <%# 通常のフィード一覧 %>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
