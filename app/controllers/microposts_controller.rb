@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :recent]
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:create, :destroy, :recent, :pin, :unpin]
+  before_action :correct_user,   only: [:destroy, :pin, :unpin]
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -26,6 +26,19 @@ class MicropostsController < ApplicationController
 
   def recent
     @microposts = current_user.recent_following_microposts
+  end
+
+  def pin
+    @micropost = Micropost.find(params[:id])
+    current_user.update(pinned_micropost_id: @micropost.id)
+    flash[:success] = "マイクロポストを固定しました"
+    redirect_to request.referrer || root_url, status: :see_other
+  end
+
+  def unpin
+    current_user.update(pinned_micropost_id: nil)
+    flash[:success] = "マイクロポストの固定を解除しました"
+    redirect_to request.referrer || root_url, status: :see_other
   end
 
   private

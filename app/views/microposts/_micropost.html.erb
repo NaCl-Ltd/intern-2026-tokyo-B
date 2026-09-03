@@ -8,10 +8,13 @@
     <% end %>
   </span>
   <span class="timestamp">
-    <%= time_ago_in_words(micropost.created_at) %> <%= t('shared.label.micropost_ago')%>
-    <% if current_user?(micropost.user) %>
-      <%= link_to t('shared.label.delete'), micropost, data: { "turbo-method": :delete,
-                                               turbo_confirm: "You sure?" } %>
+    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    <% if current_user.pinned_micropost_id == micropost.id %>
+      <%= link_to "固定解除", unpin_micropost_path(micropost), data: { "turbo-method": :patch } %>
+    <% else %>
+      <%= link_to "固定する", pin_micropost_path(micropost), data: { "turbo-method": :patch } %>
+
+      <%= link_to "delete", micropost, data: { "turbo-method": :delete, turbo_confirm: "You sure?" } %>
     <% end %>
   </span>
 </li>

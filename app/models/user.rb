@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :nickname, uniqueness: true, allow_blank: true
+  belongs_to :pinned_micropost, class_name: "Micropost", optional: true
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
