@@ -38,7 +38,6 @@ class MicropostsController < ApplicationController
     @microposts = current_user.recent_following_microposts
   end
 
-
   private
 
     def micropost_params
