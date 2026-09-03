@@ -12,7 +12,7 @@
     </strong>
     followers
   </a>
-  <% if current_user.has_aboutme? %>
+  <% if current_user&.has_aboutme? %>
     <%= current_user.context %>
   <% end %>
 </div>
