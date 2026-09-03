@@ -1,9 +1,9 @@
 <%= form_with(model: @micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :content, placeholder: t('shared.label.suggest_micropost') %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit t('shared.label.micropost'), class: "btn btn-primary" %>
   <span class="image">
     <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
   </span>
