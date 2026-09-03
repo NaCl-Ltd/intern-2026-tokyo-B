@@ -12,4 +12,7 @@
     </strong>
     <%= t('shared.label.follow_you') %>
   </a>
+  <% if current_user&.has_aboutme? %>
+    <%= current_user.context %>
+  <% end %>
 </div>

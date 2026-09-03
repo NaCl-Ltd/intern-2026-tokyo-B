@@ -106,6 +106,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_03_023249) do
     t.string "activation_digest"
     t.boolean "admin", default: false
     t.string "birth_place"
+    t.date "birth_date"
+    t.string "context"
     t.datetime "created_at", null: false
     t.string "email"
     t.string "name"
