@@ -23,6 +23,7 @@ gem 'stimulus-rails'            , '1.3.4'
 gem 'turbo-rails'               , '2.0.23'
 gem 'will_paginate'             , '3.3.1'
 gem "config"                    , "5.6.1"
+gem 'acts-as-taggable-on'
 gem 'rails-i18n'                            #日本語対応用のgemを追加
 
 group :development, :test do

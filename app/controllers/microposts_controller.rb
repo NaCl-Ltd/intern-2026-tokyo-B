@@ -2,6 +2,16 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :recent]
   before_action :correct_user,   only: :destroy
 
+  def index
+    if params[:tag]
+      # URLにタグが含まれている場合は、そのタグで絞り込み
+      @microposts = Micropost.tagged_with(params[:tag]).paginate(page: params[:page])
+    else
+      # タグ指定がない場合は全件表示
+      @microposts = Micropost.paginate(page: params[:page])
+    end
+  end
+
   def create
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
@@ -31,7 +41,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.expect(micropost: [:content, :image])
+      params.expect(micropost: [:content, :image, :tag_list])
     end
 
     def correct_user

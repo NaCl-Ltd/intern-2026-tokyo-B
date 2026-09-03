@@ -81,6 +81,9 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    acts-as-taggable-on (13.0.0)
+      activerecord (>= 7.1, < 8.2)
+      zeitwerk (>= 2.4, < 3.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
@@ -472,6 +475,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations (= 3.0.5)
+  acts-as-taggable-on
   bcrypt (= 3.1.22)
   bootsnap (= 1.24.6)
   bootstrap-sass (= 3.4.1)
@@ -488,7 +492,7 @@ DEPENDENCIES
   irb (= 1.18.0)
   jbuilder (= 2.15.1)
   mailgun-ruby (= 1.4.4)
-  mini_magick
+  mini_magick (= 5.4.0)
   minitest (= 6.0.6)
   minitest-reporters (= 1.8.0)
   mutex_m
