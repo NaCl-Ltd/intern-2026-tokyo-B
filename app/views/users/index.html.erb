@@ -1,5 +1,5 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1><%= t('shared.label.all_users') %></h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :name_or_email_cont , "名前またはメールで検索" %>
   <%= f.search_field :name_or_email_cont, class: "form-control", placeholder: "キーワード" %>

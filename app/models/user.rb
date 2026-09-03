@@ -118,6 +118,11 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  # 現在のユーザーが自己紹介文を持っていればtrueを返す
+  def has_aboutme?
+    context.present?
+  end
 
   # app/models/user.rb
   def recent_following_microposts
