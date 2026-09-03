@@ -23,6 +23,7 @@ gem 'stimulus-rails'            , '1.3.4'
 gem 'turbo-rails'               , '2.0.23'
 gem 'will_paginate'             , '3.3.1'
 gem "config"                    , "5.6.1"
+gem 'ransack'                              #検索機能用のgemを追加
 
 group :development, :test do
   gem 'debug',  '1.11.1', platforms: %i[mri mingw x64_mingw]
