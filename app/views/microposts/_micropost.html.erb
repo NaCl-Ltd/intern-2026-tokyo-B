@@ -2,7 +2,7 @@
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= auto_link(micropost.content, html: { target: '_blank', rel: 'noopener' }) %>
     <% if micropost.image.attached? %>
       <%= image_tag micropost.image.variant(:display) %>
     <% end %>
@@ -11,7 +11,7 @@
     <%= time_ago_in_words(micropost.created_at) %> <%= t('shared.label.micropost_ago')%>
     <% if current_user?(micropost.user) %>
       <%= link_to t('shared.label.delete'), micropost, data: { "turbo-method": :delete,
-                                               turbo_confirm: "You sure?" } %>
+                                                               turbo_confirm: "You sure?" } %>
     <% end %>
   </span>
 </li>

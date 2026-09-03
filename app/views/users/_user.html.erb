@@ -1,11 +1,16 @@
 <li>
   <%= gravatar_for user, size: 50 %>
   <%= link_to user.name, user %>
+
+  <span class="user-stats" style="font-size: 0.9em; color: #777; margin-left: 10px;">
+    フォロー: <%= user.following.count %> | フォロワー: <%= user.followers.count %>
+  </span>
+
   <% if user&.has_aboutme? %>
     <%= user.context %>
   <% end %>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to t('shared.label.delete'), user, data: { "turbo-method": :delete,
-                                          turbo_confirm: "You sure?" } %>
+                                                          turbo_confirm: "You sure?" } %>
   <% end %>
 </li>
