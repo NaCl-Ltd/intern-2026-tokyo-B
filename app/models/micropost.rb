@@ -11,4 +11,8 @@ class Micropost < ApplicationRecord
                       size: { less_than: 5.megabytes,
                               message:   "should be less than 5MB" }
   has_many :comments, dependent: :destroy
+
+  def Micropost.search_content(content="")
+    Micropost.where("content LIKE ?", "%#{content}%")
+  end
 end

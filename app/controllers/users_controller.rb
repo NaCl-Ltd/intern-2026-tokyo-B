@@ -14,11 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if params[:content]
-      @microposts = @user.microposts.where("content LIKE ?", "%#{params[:content]}%").paginate(page: params[:page])
-    else
-      @microposts = @user.microposts.paginate(page: params[:page])
-    end
+    @microposts = @user.microposts.search_content(params[:content]).paginate(page: params[:page])
   end
 
   def new
