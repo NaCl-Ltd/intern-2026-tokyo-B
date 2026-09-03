@@ -4,4 +4,8 @@
   </ol>
   <%= will_paginate @feed_items,
                     params: { controller: :static_pages, action: :home } %>
+<% else %>
+  <section class="nothing_microposts">
+    Nothing Microposts
+  </section>
 <% end %>
