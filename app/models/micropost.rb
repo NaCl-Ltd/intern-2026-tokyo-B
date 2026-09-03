@@ -10,4 +10,5 @@ class Micropost < ApplicationRecord
                                       message: "must be a valid image format" },
                       size: { less_than: 5.megabytes,
                               message:   "should be less than 5MB" }
+  acts_as_taggable_on :tags
 end

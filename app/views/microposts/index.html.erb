@@ -1,0 +1,11 @@
+<% provide(:title, params[:tag] ? "Tag: #{params[:tag]}" : "All Microposts") %>
+<h1><%= params[:tag] ? "Tag: #{params[:tag]}" : "All Microposts" %></h1>
+
+<% if @microposts.any? %>
+  <ol class="microposts">
+    <%= render @microposts %>
+  </ol>
+  <%= will_paginate @microposts %>
+<% else %>
+  <p>該当する投稿がありません。</p>
+<% end %>

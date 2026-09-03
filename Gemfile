@@ -23,6 +23,7 @@ gem 'stimulus-rails'            , '1.3.4'
 gem 'turbo-rails'               , '2.0.23'
 gem 'will_paginate'             , '3.3.1'
 gem "config"                    , "5.6.1"
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'debug',  '1.11.1', platforms: %i[mri mingw x64_mingw]
@@ -50,6 +51,7 @@ end
 group :production do
   gem 'mailgun-ruby', "1.4.4"
 end
+
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
 # gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
