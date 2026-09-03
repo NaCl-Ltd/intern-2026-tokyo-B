@@ -9,7 +9,11 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      if params[:content]
+        @feed_items = current_user.feed.where("content LIKE ?", "%#{params[:content]}%").paginate(page: params[:page])
+      else
+        @feed_items = current_user.feed.paginate(page: params[:page])
+      end
       render 'static_pages/home', status: :unprocessable_entity
     end
   end

@@ -15,6 +15,12 @@
     </aside>
     <div class="col-md-8">
       <h3><%= t('shared.label.all_micropost') %></h3>
+      <h3>Micropost Feed</h3>
+      <%= form_with url: "/", method: :get do |f| %>
+        <%= f.label :content, "内容検索" %>
+        <%= f.search_field :content, value: params[:content], placeholder: "ex)rem" %>
+        <%= f.submit "検索", class: "btn btn-secondary" %>
+      <% end %>
       <%= render 'shared/feed' %>
     </div>
   </div>
