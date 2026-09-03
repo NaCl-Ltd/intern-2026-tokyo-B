@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= image_tag("ruby.png", id: "logo_icon", alt: "Ruby logo", width: "30px") %>
-    <%= link_to "Y", root_path, id: "logo" %>
+    <%= link_to t('shared.label.app_name'), root_path, id: "logo" %>
     <nav>
       <div class="navbar-header">
         <button id="hamburger" type="button" class="navbar-toggle collapsed">
@@ -13,10 +13,10 @@
       </div>
       <ul id="navbar-menu"
           class="nav navbar-nav navbar-right collapse navbar-collapse">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to t('shared.label.home'), root_path %></li>
+        <li><%= link_to t('shared.label.help'), help_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to t('shared.label.all_users'), users_path %></li>
 
           <% recent_count = current_user.recent_following_microposts.count %>
           <li>
@@ -27,19 +27,19 @@
 
           <li class="dropdown">
             <a href="#" id="account" class="dropdown-toggle">
-              Account <b class="caret"></b>
+              <%= t('shared.label.account') %> <b class="caret"></b>
             </a>
             <ul id="dropdown-menu" class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to t('shared.label.profile'), current_user %></li>
+              <li><%= link_to t('shared.label.setting'), edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
+                <%= link_to t('shared.label.signed_out'), logout_path, data: { "turbo-method": :delete } %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to t('shared.label.sign_in'), login_path %></li>
         <% end %>
       </ul>
     </nav>
