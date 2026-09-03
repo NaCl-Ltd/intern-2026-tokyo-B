@@ -9,7 +9,11 @@
 <%= will_paginate %>
 
 <ul class="users">
-  <%= render @users %>
+  <% if @users.present? %>
+    <%= render @users %>
+  <% else %>
+    <h2>該当するユーザーは見つかりませんでした</h2>
+  <% end %>
 </ul>
 
 <%= will_paginate %>
