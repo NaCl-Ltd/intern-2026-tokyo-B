@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers,:search]
-  before_action :correct_user,   only: [:edit, :update]
+                                        :following, :followers,]
+  before_action :correct_user,   only: [:edit, :update,]
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).paginate(page: params[:page])
   end
 
   def show

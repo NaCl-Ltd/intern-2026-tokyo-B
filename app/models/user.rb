@@ -93,6 +93,16 @@ class User < ApplicationRecord
              .includes(:user, image_attachment: :blob)
   end
 
+  #検索可能なカルムを定義する
+  def self.ransackable_attributes(auth_object = nil)
+    ["name", "email"]
+  end
+  
+  #検索で関係付けしたいモデルを指定
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
   # ユーザーをフォローする
   def follow(other_user)
     following << other_user unless self == other_user
