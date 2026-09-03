@@ -29,18 +29,16 @@ class MicropostsController < ApplicationController
   end
 
   def pin
-    current_user.microposts.update_all(pinned: false)
-    @micropost.update(pinned: true)
-
+    @micropost = Micropost.find(params[:id])
+    current_user.update(pinned_micropost_id: @micropost.id)
     flash[:success] = "マイクロポストを固定しました"
-    redirect_to request.referrer || root_url
+    redirect_to request.referrer || root_url, status: :see_other
   end
 
   def unpin
-    @micropost.update(pinned: false)
-
-    flash[:success] = "固定を解除しました"
-    redirect_to request.referrer || root_url
+    current_user.update(pinned_micropost_id: nil)
+    flash[:success] = "マイクロポストの固定を解除しました"
+    redirect_to request.referrer || root_url, status: :see_other
   end
 
   private
