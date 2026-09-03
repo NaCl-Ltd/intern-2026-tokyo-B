@@ -1,0 +1,10 @@
+<% provide(:title, "Recent Microposts") %>
+<h1>Recent Microposts</h1>
+
+<% if @microposts.any? %>
+  <ol class="microposts">
+    <%= render @microposts %>
+  </ol>
+<% else %>
+  <p>最近の投稿はありません。</p>
+<% end %>
