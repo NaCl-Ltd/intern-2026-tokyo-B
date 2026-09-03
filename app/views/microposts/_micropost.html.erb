@@ -15,3 +15,27 @@
     <% end %>
   </span>
 </li>
+
+<div class="comments" style="margin-top: 15px; margin-left: 20px; border-left: 2px solid #eee; padding-left: 10px;">
+  <% micropost.comments.each do |comment| %>
+    <div id="comment-<%= comment.id %>" style="margin-bottom: 10px;">
+      <span class="user" style="font-weight: bold;"><%= link_to comment.user.name, comment.user %></span>
+      <span class="content"><%= comment.content %></span>
+      <span class="timestamp text-muted" style="display: block; font-size: 0.8em;">
+        Posted <%= time_ago_in_words(comment.created_at) %> ago.
+        <% if current_user?(comment.user) %>
+          <%= link_to "delete", [micropost, comment], data: { "turbo-method": :delete, turbo_confirm: "You sure?" } %>
+        <% end %>
+      </span>
+    </div>
+  <% end %>
+
+  <% if logged_in? %>
+    <div class="comment-form" style="margin-top: 10px;">
+      <%= form_with(model: [micropost, micropost.comments.build], local: true) do |f| %>
+        <%= f.text_area :content, placeholder: "Add a comment...", class: "form-control", rows: 1 %>
+        <%= f.submit "Post", class: "btn btn-primary btn-xs", style: "margin-top: 5px;" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
