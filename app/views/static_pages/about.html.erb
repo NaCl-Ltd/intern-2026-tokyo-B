@@ -10,7 +10,9 @@
 </p>
 
 <p>
-  <%= shared.label.about_message%>
+  また、このアプリケーションは<%= Settings.about.internship.host %>が実施する
+  インターンシップの中でより良いアプリケーションになるよう改善が行われております。
+  この改善を実施したのは次のインターン生のみなさんです。
   <ul>
     <% Settings.about.internship.members.each do |member| %>
       <li><%= member %></li>
